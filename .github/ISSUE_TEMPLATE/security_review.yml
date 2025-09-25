@@ -1,0 +1,73 @@
+name: 🛡️ Security / Oversight Review
+description: File an issue to discuss evidence, implications, or oversight questions related to IRS EIN telemetry.
+title: "[Review] "
+labels: ["review", "oversight", "security"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for opening a review issue.  
+        Please remember: this repository documents **capability and provenance** only.  
+        No taxpayer PII should be posted here.
+
+  - type: input
+    id: affiliation
+    attributes:
+      label: Affiliation
+      description: Your role or affiliation (e.g., journalist, researcher, gov oversight, concerned citizen).
+      placeholder: e.g. "Investigative journalist" or "Security researcher"
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence or Concern
+      description: What part of the evidence (HAR, cookies, TLS, GTM/GA scripts, AWSALB) are you referencing?
+      placeholder: e.g. "Observed GTM-KV978ZL in page <head> with DOM hook capability..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: implications
+    attributes:
+      label: Security / Privacy Implications
+      description: How you interpret the capability (e.g., DOM access, TLS termination, ad-targeting, FedRAMP oversight).
+      placeholder: e.g. "Could enable ad-tech correlation of EIN applicants with ad audiences..."
+    validations:
+      required: false
+
+  - type: textarea
+    id: questions
+    attributes:
+      label: Oversight Questions
+      description: What questions should be asked of IRS, Treasury, or FedRAMP?
+      placeholder: e.g. "Why is TLS terminating at Akamai rather than federal enclaves?"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Perceived Severity
+      options:
+        - 🔵 Low
+        - 🟡 Medium
+        - 🟠 High
+        - 🔴 Critical
+      description: Your personal assessment of severity
+    validations:
+      required: true
+
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: Links to supporting material (repo paths, external links, press).
+      placeholder: |
+        - /evidence/html_snapshot.html
+        - /evidence/cert_dump.txt
+        - Draft article
+    validations:
+      required: false
