@@ -1,0 +1,28 @@
+// dataLayer hook
+(function(){
+  const dl = window.dataLayer || (window.dataLayer = []);
+  const orig = dl.push;
+  dl.push = function(){
+    console.groupCollapsed('dataLayer.push ->', ...arguments); console.trace(); console.groupEnd();
+    return orig.apply(this, arguments);
+  };
+})();
+
+// input.value read hook (adjust target names as needed)
+(function(){
+  const targets = new Set(['ssn','social','social_security','ein','tin']);
+  const desc = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value');
+  Object.defineProperty(HTMLInputElement.prototype,'value',{
+    get:function(){
+      const n=(this.name||'').toLowerCase(), i=(this.id||'').toLowerCase();
+      if (targets.has(n) || targets.has(i)) { console.groupCollapsed('READ input.value',{name:n,id:i}); console.trace(); console.groupEnd(); }
+      return desc.get.call(this);
+    },
+    set:function(v){ return desc.set.call(this,v); }
+  });
+})();
+
+// fetch/XHR/sendBeacon hooks to log payloads (for capability demonstration only)
+(function(){const f=window.fetch;window.fetch=async function(u,i){console.groupCollapsed('fetch ->',u); if(i&&i.body)console.log('body:',i.body); console.trace();console.groupEnd(); return f.apply(this,arguments);} })();
+(function(){const o=XMLHttpRequest.prototype.open,s=XMLHttpRequest.prototype.send; XMLHttpRequest.prototype.open=function(m,u){this._u=u;return o.apply(this,arguments)}; XMLHttpRequest.prototype.send=function(b){console.groupCollapsed('XHR ->',this._u); if(b)console.log('body:',b); console.trace();console.groupEnd(); return s.apply(this,arguments)};})();
+(function(){const b=navigator.sendBeacon;navigator.sendBeacon=function(u,d){console.groupCollapsed('sendBeacon ->',u); if(d)console.log('data:',d); console.trace();console.groupEnd(); return b.apply(this,arguments)}})();

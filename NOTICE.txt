@@ -1,0 +1,6 @@
+NOTICE - Legal & Ethics
+
+This repository documents technical capability and provenance related to telemetry on a public government web page. It does NOT allege that data was exfiltrated. The author(s) have not attempted to submit or expose real taxpayer PII in gathering this evidence.
+- Do NOT include any real SSNs, EINs, names, addresses, or other PII in this repository.
+- Redacted artifacts are provided for public review. If you need access to unredacted artifacts for verification, contact the author to coordinate secure review.
+- Use of this repository for malicious purposes is strictly prohibited.

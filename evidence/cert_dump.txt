@@ -1,0 +1,12 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            06:e7:8f:d8:20:c2:54:b6:f4:cd:33:19:6b:78:7f:43:ea:44
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=US, O=Let's Encrypt, CN=R10
+        Validity
+            Not Before: Aug  5 14:31:28 2025 GMT
+            Not After : Nov  3 14:31:27 2025 GMT
+        Subject: CN=sa.www4.irs.gov
+... (truncated) ...

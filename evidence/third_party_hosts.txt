@@ -1,0 +1,2 @@
+www.google-analytics.com
+www.googletagmanager.com

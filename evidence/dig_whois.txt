@@ -1,0 +1,21 @@
+; <<>> DiG 9.10.6 <<>> sa.www4.irs.gov
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 30274
+;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 512
+;; QUESTION SECTION:
+;sa.www4.irs.gov.   IN  A
+
+;; ANSWER SECTION:
+sa.www4.irs.gov. 900 IN CNAME sa.www4.irs.gov.edgekey.net.
+sa.www4.irs.gov.edgekey.net. 2512 IN CNAME e182458.dscna.akamaiedge.net.
+e182458.dscna.akamaiedge.net. 20 IN A 23.45.233.106
+e182458.dscna.akamaiedge.net. 20 IN A 23.45.233.112
+
+;; Query time: 26 msec
+;; SERVER: 100.100.100.100#53(100.100.100.100)
+;; WHEN: Thu Sep 25 17:07:39 EDT 2025
+;; MSG SIZE  rcvd: 156
